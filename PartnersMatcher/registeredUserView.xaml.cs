@@ -11,36 +11,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PartnersMatcher
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for registeredUserView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class registeredUserView : Window
     {
-        public MainWindow()
+        ObservableCollection<Post> l;
+        public registeredUserView()
         {
+            DataContext = this; 
             InitializeComponent();
+            l = new ObservableCollection<Post>();
+            l.Add(new Post("title1", "1", "reut1"));
+            l.Add(new Post("title2", "2", "yarden1"));
+            posts.ItemsSource = l;           
         }
 
-        private void sign(object sender, RoutedEventArgs e)
+        private void _exit(object sender, RoutedEventArgs e)
         {
-            signIn s = new signIn();
-            s.Show();
+            MainWindow m = new MainWindow();
+            m.Show();
             this.Close();
-        }
-
-        private void newUser(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void guest(object sender, RoutedEventArgs e)
-        {
-            //do nothing
         }
     }
 }
