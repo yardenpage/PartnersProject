@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,29 @@ namespace PartnersMatcher
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<Post> l;
         public MainWindow()
         {
             InitializeComponent();
-            string s = "gfhf";
+            l = new ObservableCollection<Post>();
+            l.Add(new Post("title1", "1", "reut1"));
+            l.Add(new Post("title2", "2", "yarden1"));
+            posts.ItemsSource = l;
+        }
+
+        private void posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void signIn(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void newUser(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
