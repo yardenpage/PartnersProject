@@ -23,6 +23,7 @@ namespace PartnersMatcher
         public MainWindow()
         {
             InitializeComponent();
+            string s = "gfhf";
         }
     }
 }
