@@ -22,7 +22,7 @@ namespace PartnersMatcher
         string userMail;
         string password;
         //string key - mail, string val - password
-        Dictionary<string,string> users;
+        Dictionary<string, string> users;
 
         public signIn()
         {
@@ -33,31 +33,21 @@ namespace PartnersMatcher
             users.Add("reut", "111");
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void sign(object sender, RoutedEventArgs e)
         {
-            userMail = this.textBox.Text.Trim();
-            password = this.textBox1.Text.Trim();
+            userMail = this.UserNametextBox.Text;
+            password = this.PasswordtextBox.Password;
             if (password == "" || userMail == "")
             {
                 MessageBox.Show("Missing fields", "Error");
             }
-            else if(!users.ContainsKey(userMail))
+            else if (!users.ContainsKey(userMail))
             {
-                MessageBox.Show("user name dosn't exist in the system", "Error");
+                MessageBox.Show("User name doesn't exist in the system", "Error");
             }
-            else if(users[userMail]!= password)
+            else if (users[userMail] != password)
             {
-                MessageBox.Show("incorect password", "Error");
+                MessageBox.Show("Incorect password", "Error");
             }
             else
             {
@@ -72,6 +62,15 @@ namespace PartnersMatcher
             MainWindow m = new MainWindow();
             m.Show();
             this.Close();
+        }
+
+        private void UserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void Password_TextChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

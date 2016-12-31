@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="registeredUserView" Height="400" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Registered User" Height="400" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
         <ListBox x:Name="posts" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Source=l}"></ListBox>
         <Button x:Name="button2" Content="exit" HorizontalAlignment="Right" VerticalAlignment="Top" Click="_exit"/>

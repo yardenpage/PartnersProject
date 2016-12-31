@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="NewUserWindow" Height="300" Width="300">
+        Title="New User" Height="300" Width="390">
     <Grid>
-        
+        <TextBlock x:Name="InstructionsBlock" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Please Fill The Following Fields:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="UserNameBlock" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="User Name (Mail Address):" VerticalAlignment="Top"/>
+        <TextBlock x:Name="PasswordBlock" HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="PasswordConBlock" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Confirm Password:" VerticalAlignment="Top"/>
+        <TextBox x:Name="UserNametextBox" HorizontalAlignment="Left" Height="19" Margin="155,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="UserName_TextChanged"/>
+        <PasswordBox x:Name="PasswordtextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="19" Margin="155,85,0,0" VerticalAlignment="Top" Width="200" PasswordChanged="Password_TextChanged"/>
+        <PasswordBox x:Name="PasswordContextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="19" Margin="155,110,0,0" VerticalAlignment="Top" Width="200" PasswordChanged="PasswordCon_TextChanged"/>
+        <Button x:Name="CreateUserButton" Content="Create New User" HorizontalAlignment="Stretch" Margin="0,170,0,0" VerticalAlignment="Top" Width="130" Height="25" Click="create"/>
+        <Button x:Name="Exitbutton" Content="Exit" HorizontalAlignment="Right" VerticalAlignment="Top" Click="_exit"/>
     </Grid>
 </Window>

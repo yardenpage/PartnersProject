@@ -35,9 +35,9 @@ namespace PartnersMatcher
 
         private void create(object sender, RoutedEventArgs e)
         {
-            userMail = this.textBox.Text.Trim();
-            password1 = this.textBox1.Text.Trim();
-            password2 = this.textBox2.Text.Trim();
+            userMail = this.UserNametextBox.Text;
+            password1 = this.PasswordtextBox.Password;
+            password2 = this.PasswordContextBox.Password;
             if (password1 == "" || password2 == "" || userMail == "")
             {
                 MessageBox.Show("Missing fields", "Error");
@@ -45,6 +45,14 @@ namespace PartnersMatcher
             else if (users.ContainsKey(userMail))
             {
                 MessageBox.Show("User Name allready exists in the system", "Error");
+            }
+            else if (!userMail.Contains('@'))
+            {
+                MessageBox.Show("User Mail is not legal", "Error");
+            }
+            else if(password1.Length < 9 || password2.Length < 9)
+            {
+                MessageBox.Show("Password is too short (need to be minimun 8 chars)", "Error");
             }
             else if (password1 != password2)
             {
@@ -58,6 +66,26 @@ namespace PartnersMatcher
                 r.Show();
                 this.Close();
             }
+        }
+
+        private void _exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
+        }
+
+        private void UserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void Password_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void PasswordCon_TextChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
