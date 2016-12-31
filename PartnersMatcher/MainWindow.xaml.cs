@@ -26,7 +26,7 @@ namespace PartnersMatcher
             InitializeComponent();
         }
 
-        private void sign(object sender, RoutedEventArgs e)
+        private void signIn(object sender, RoutedEventArgs e)
         {
             signIn s = new signIn();
             s.Show();
@@ -35,7 +35,9 @@ namespace PartnersMatcher
 
         private void newUser(object sender, RoutedEventArgs e)
         {
-
+            NewUserWindow nu = new NewUserWindow();
+            nu.Show();
+            this.Close();
         }
 
         private void guest(object sender, RoutedEventArgs e)

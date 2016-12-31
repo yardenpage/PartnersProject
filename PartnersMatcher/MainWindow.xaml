@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="button1" Content="Sign In" HorizontalAlignment="Stretch" Margin="0,50,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="sign"/>
-        <Button x:Name="button2" Content="New User" HorizontalAlignment="Stretch" Margin="0,110,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="newUser"/>
-        <Button x:Name="button3" Content="Continue As Guest" HorizontalAlignment="Stretch" Margin="0,170,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="guest"/>
+        <Button x:Name="SignInButton" Content="Sign In" HorizontalAlignment="Stretch" Margin="0,50,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="sign"/>
+        <Button x:Name="NewUserButton" Content="New User" HorizontalAlignment="Stretch" Margin="0,110,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="newUser"/>
+        <Button x:Name="ContinueGuestButton" Content="Continue As Guest" HorizontalAlignment="Stretch" Margin="0,170,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="guest"/>
     </Grid>
 </Window>
