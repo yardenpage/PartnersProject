@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,43 +22,29 @@ namespace PartnersMatcher
     {
         string userMail;
         string password;
-        //string key - mail, string val - password
-        Dictionary<string,string> users;
 
         public signIn()
         {
             InitializeComponent();
             userMail = "";
             password = "";
-            users = new Dictionary<string, string>();
-            users.Add("reut", "111");
-        }
-
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void sign(object sender, RoutedEventArgs e)
         {
-            userMail = this.textBox.Text.Trim();
-            password = this.textBox1.Text.Trim();
+            userMail = this.UserNametextBox.Text;
+            password = this.PasswordtextBox.Password;
             if (password == "" || userMail == "")
             {
                 MessageBox.Show("Missing fields", "Error");
             }
-            else if(!users.ContainsKey(userMail))
+            else if (!MainWindow.users_passwords.ContainsKey(userMail))
             {
-                MessageBox.Show("user name dosn't exist in the system", "Error");
+                MessageBox.Show("User name doesn't exist in the system", "Error");
             }
-            else if(users[userMail]!= password)
+            else if (MainWindow.users_passwords[userMail] != password)
             {
-                MessageBox.Show("incorect password", "Error");
+                MessageBox.Show("Incorect password", "Error");
             }
             else
             {
@@ -69,9 +56,53 @@ namespace PartnersMatcher
 
         private void _exit(object sender, RoutedEventArgs e)
         {
-            MainWindow m = new MainWindow();
-            m.Show();
             this.Close();
+        }
+
+        private void UserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void Password_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void foreget_password(object sender, RoutedEventArgs e)
+        {
+            userMail = this.UserNametextBox.Text;
+            if (userMail == "")
+            {
+                MessageBox.Show("Missing user mail", "Error");
+            }
+            else if (!MainWindow.users_passwords.ContainsKey(userMail))
+            {
+                MessageBox.Show("user name dosn't exist in the system", "Error");
+            }
+            else
+            {
+                try
+                {
+                    MailMessage mail = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                    mail.From = new MailAddress("reut.chita@gmail.com");
+                    mail.To.Add(userMail);
+                    mail.Subject = "Your password to PartnersMatcher";
+                    mail.Body = "Your password is: " + MainWindow.users_passwords[userMail];
+
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("reut.chita@gmail.com", "------");
+                    SmtpServer.EnableSsl = true;
+
+                    SmtpServer.Send(mail);
+                    MessageBox.Show("mail Send");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="registeredUserView" Height="400" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Registered User" Height="400" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListBox x:Name="posts" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Source=l}"></ListBox>
-        <Button x:Name="button2" Content="exit" HorizontalAlignment="Right" VerticalAlignment="Top" Click="_exit"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="350"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="posts" Grid.Row="1" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Source=l}"></ListBox>
+        <TextBlock x:Name="Domain_textblock" Grid.Row="0" HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="Domain:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="domains_combo" Grid.Row="0" HorizontalAlignment="Left" Margin="70,20,0,0" VerticalAlignment="Top" SelectionChanged="domain_SelectionChanged"/>
+        <TextBlock x:Name="location_textblock" Grid.Row="0" HorizontalAlignment="Left" Margin="200,20,0,0" TextWrapping="Wrap" Text="Location:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="location_combo" Grid.Row="0" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" SelectionChanged="location_SelectionChanged"/>
+        <Button x:Name="button2" Grid.Row="0" Content="Exit" HorizontalAlignment="Right" VerticalAlignment="Top" Click="_exit"/>
     </Grid>
 </Window>

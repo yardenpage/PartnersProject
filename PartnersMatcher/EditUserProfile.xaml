@@ -1,0 +1,36 @@
+﻿<Window x:Class="PartnersMatcher.EditUserProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartnersMatcher"
+        mc:Ignorable="d"
+        Title="EditUserProfile" Height="400" Width="400"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock x:Name="InstructionsBlock" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Please Fill The Following Fields:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Full_Name" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Full Name:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Age" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Phone_Number" HorizontalAlignment="Left" Margin="10,100,0,0" TextWrapping="Wrap" Text="Phone Number:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="City" HorizontalAlignment="Left" Margin="10,125,0,0" TextWrapping="Wrap" Text="City:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Domains" HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Domains:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Domains1" HorizontalAlignment="Left" Margin="100,160,0,0" TextWrapping="Wrap" Text="Dates" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Domains2" HorizontalAlignment="Left" Margin="100,180,0,0" TextWrapping="Wrap" Text="Trips" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Domains3" HorizontalAlignment="Left" Margin="100,200,0,0" TextWrapping="Wrap" Text="Acomodation" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Domains4" HorizontalAlignment="Left" Margin="100,220,0,0" TextWrapping="Wrap" Text="Sports" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Domains5" HorizontalAlignment="Left" Margin="100,240,0,0" TextWrapping="Wrap" Text="Other" VerticalAlignment="Top"/>
+        <TextBox x:Name="OtherDtextBox" HorizontalAlignment="Left" Height="19" Margin="190,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="OtherD_TextChanged"/>
+        
+        <TextBox x:Name="UserFullNametextBox" HorizontalAlignment="Left" Height="19" Margin="155,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="UserFullName_TextChanged"/>
+        <TextBox x:Name="AgetextBox" HorizontalAlignment="Left" Height="19" Margin="155,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="Age_TextChanged"/>
+        <TextBox x:Name="PhonetextBox" HorizontalAlignment="Left" Height="19" Margin="155,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="Phone_TextChanged"/>
+        <TextBox x:Name="CitytextBox" HorizontalAlignment="Left" Height="19" Margin="155,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="City_TextChanged"/>
+
+        <CheckBox Name="checkbox1" HorizontalAlignment="Left" Margin="190,160,0,0" VerticalAlignment="Top" Checked="date_Checked" Unchecked="date_Unchecked"/>
+        <CheckBox Name="checkbox2" HorizontalAlignment="Left" Margin="190,180,0,0" VerticalAlignment="Top" Checked="trip_Checked" Unchecked="trip_Unchecked"/>
+        <CheckBox Name="checkbox3" HorizontalAlignment="Left" Margin="190,200,0,0" VerticalAlignment="Top" Checked="acomodation_Checked" Unchecked="acomodation_Unchecked"/>
+        <CheckBox Name="checkbox4" HorizontalAlignment="Left" Margin="190,220,0,0" VerticalAlignment="Top" Checked="sport_Checked" Unchecked="sport_Unchecked"/>
+        
+        <Button x:Name="SaveChanges" Content="Save" HorizontalAlignment="Stretch" Margin="0,280,0,0" VerticalAlignment="Top" Width="130" Height="25" Click="create"/>
+        <Button x:Name="Exitbutton" Content="Exit" VerticalAlignment="Top" Click="_exit" HorizontalAlignment="Right"/>
+    </Grid>
+</Window>
