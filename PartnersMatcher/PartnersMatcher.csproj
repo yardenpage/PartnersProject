@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,15 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Domains\Accomodation.cs" />
-    <Compile Include="acomodation.xaml.cs">
-      <DependentUpon>acomodation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Domains\Dates.cs" />
-    <Compile Include="EditUserProfile.xaml.cs">
-      <DependentUpon>EditUserProfile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Domains\IDomain.cs" />
     <Compile Include="NewUserWindow.xaml.cs">
       <DependentUpon>NewUserWindow.xaml</DependentUpon>
     </Compile>
@@ -76,15 +64,6 @@
     <Compile Include="signIn.xaml.cs">
       <DependentUpon>signIn.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\User.cs" />
-    <Page Include="acomodation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditUserProfile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,7 +90,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Post.cs" />
+    <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

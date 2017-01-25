@@ -22,13 +22,15 @@ namespace PartnersMatcher
         string userMail;
         string password1;
         string password2;
-
+        //string key - mail, string val - password
+        Dictionary<string, string> users;
         public NewUserWindow()
         {
             InitializeComponent();
             userMail = "";
             password1 = "";
             password2 = "";
+            users = new Dictionary<string, string>();
         }
 
         private void create(object sender, RoutedEventArgs e)
@@ -40,7 +42,7 @@ namespace PartnersMatcher
             {
                 MessageBox.Show("Missing fields", "Error");
             }
-            else if (MainWindow.users_passwords.ContainsKey(userMail))
+            else if (users.ContainsKey(userMail))
             {
                 MessageBox.Show("User Name allready exists in the system", "Error");
             }
@@ -48,7 +50,7 @@ namespace PartnersMatcher
             {
                 MessageBox.Show("User Mail is not legal", "Error");
             }
-            else if(password1.Length < 8 || password2.Length < 8)
+            else if(password1.Length < 9 || password2.Length < 9)
             {
                 MessageBox.Show("Password is too short (need to be minimun 8 chars)", "Error");
             }
@@ -58,8 +60,9 @@ namespace PartnersMatcher
             }         
             else
             {
-                MainWindow.users_passwords.Add(userMail, password1);
-                EditUserProfile r = new EditUserProfile(userMail);
+                users.Add(userMail, password1);
+                MessageBox.Show("User had been added succefully", "OK");
+                registeredUserView r = new registeredUserView();
                 r.Show();
                 this.Close();
             }
@@ -67,6 +70,8 @@ namespace PartnersMatcher
 
         private void _exit(object sender, RoutedEventArgs e)
         {
+            MainWindow m = new MainWindow();
+            m.Show();
             this.Close();
         }
 

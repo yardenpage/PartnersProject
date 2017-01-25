@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="New User" Height="400" Width="400"  WindowStartupLocation="CenterScreen">
+        Title="New User" Height="300" Width="390">
     <Grid>
         <TextBlock x:Name="InstructionsBlock" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Please Fill The Following Fields:" VerticalAlignment="Top"/>
         <TextBlock x:Name="UserNameBlock" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="User Name (Mail Address):" VerticalAlignment="Top"/>
