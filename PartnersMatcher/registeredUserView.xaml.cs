@@ -38,8 +38,12 @@ namespace PartnersMatcher
             location.Add("Center");
             location.Add("All");
             l_const = new ObservableCollection<Post>();
-            l_const.Add(new Post("I wan't you to basketball team!", "Center", "Sports"));
+            l_const.Add(new Post("I wan't you to basketball team!", "North", "Sports"));
+            l_const.Add(new Post("Looking for soccer player", "Center", "Sports"));
             l_const.Add(new Post("Needed Partner to Beer Sheva Immidiatly", "South", "Accomodation"));
+            l_const.Add(new Post("Looking for my life patner", "South", "Dates"));
+            l_const.Add(new Post("Looking for not series relainshenship", "North", "Dates"));
+            l_const.Add(new Post("South America anybody?", "North", "Trip"));
             l_view = new ObservableCollection<Post>(l_const);
             posts.ItemsSource = l_view;
             domains_combo.ItemsSource = MainWindow.domains;

@@ -83,20 +83,22 @@ namespace PartnersMatcher
             {
                 try
                 {
-                    MailMessage mail = new MailMessage();
-                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.Host = "smtp.gmail.com";
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential("emailyad2@gmail.com", "mailyad2");
 
-                    mail.From = new MailAddress("reut.chita@gmail.com");
-                    mail.To.Add(userMail);
-                    mail.Subject = "Your password to PartnersMatcher";
-                    mail.Body = "Your password is: " + MainWindow.users_passwords[userMail];
+                    MailMessage mm = new MailMessage("donotreply@domain.com", userMail, "Your password to PartnersMatcher", "Your password is: " + MainWindow.users_passwords[userMail]);
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
-                    SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential("reut.chita@gmail.com", "------");
-                    SmtpServer.EnableSsl = true;
+                    client.Send(mm);
 
-                    SmtpServer.Send(mail);
-                    MessageBox.Show("mail Send");
+                    MessageBox.Show("email sended to your account", "Mail");
                 }
                 catch (Exception ex)
                 {

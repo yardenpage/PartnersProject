@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -90,6 +91,28 @@ namespace PartnersMatcher
                 MessageBox.Show("User had been added succefully", "OK");
                 if(text_changed!="")
                     MessageBox.Show("Your request for new domain sended to system manager confirmation", "OK");
+                //send mail
+                try
+                {
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.Host = "smtp.gmail.com";
+                    client.EnableSsl = true;
+                    client.Timeout = 10000;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential("emailyad2@gmail.com", "mailyad2");
+
+                    MailMessage mm = new MailMessage("donotreply@domain.com", mail, "Your account created successfully", "");
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+                    client.Send(mm);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
                 registeredUserView r = new registeredUserView();
                 r.Show();
                 this.Close();

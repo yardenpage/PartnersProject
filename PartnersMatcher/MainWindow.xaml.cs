@@ -92,16 +92,18 @@ namespace PartnersMatcher
 
         private void OpenDBFilesWrite()
         {
-            Directory.CreateDirectory(@"C: \Users\Reut\Desktop\nituz");
-            bw_passW = new BinaryWriter(File.Open(@"C: \Users\Reut\Desktop\nituz\UsersPass.bin", FileMode.OpenOrCreate));
-            usersW = new BinaryWriter(File.Open(@"C: \Users\Reut\Desktop\nituz\AllUsers.bin", FileMode.OpenOrCreate));
+            string path = System.IO.Directory.GetCurrentDirectory();
+            Directory.CreateDirectory(path + @"\nituz");
+            bw_passW = new BinaryWriter(File.Open(path + @"\nituz\UsersPass.bin", FileMode.OpenOrCreate));
+            usersW = new BinaryWriter(File.Open(path + @"\nituz\AllUsers.bin", FileMode.OpenOrCreate));
         }
 
         private void OpenDBFilesRead()
         {
-            Directory.CreateDirectory(@"C: \Users\Reut\Desktop\nituz");
-            bw_passR = new BinaryReader(File.Open(@"C: \Users\Reut\Desktop\nituz\UsersPass.bin", FileMode.OpenOrCreate));
-            usersR = new BinaryReader(File.Open(@"C: \Users\Reut\Desktop\nituz\AllUsers.bin", FileMode.OpenOrCreate));
+            string path = System.IO.Directory.GetCurrentDirectory();
+            Directory.CreateDirectory(path + @"\nituz");
+            bw_passR = new BinaryReader(File.Open(path + @"\nituz\UsersPass.bin", FileMode.OpenOrCreate));
+            usersR = new BinaryReader(File.Open(path + @"\nituz\AllUsers.bin", FileMode.OpenOrCreate));
         }
 
         private void CloseDBFilesWrite()
