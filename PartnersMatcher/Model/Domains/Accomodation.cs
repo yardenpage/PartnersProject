@@ -10,23 +10,21 @@ namespace PartnersMatcher
     class Accomodation : IDomain
     {
         string Role;
-        string isSmoking;
+        bool isSmoking;
         string Animals;
         int NumberOfPartners;
-        string religion;
 
-        public Accomodation(string _role, string _smoke, string _animal, int _num, string _hob)
+        public Accomodation(string _role, bool _smoke, string _animal, int _num)
         {
             Role = _role;
             isSmoking = _smoke;
             Animals = _animal;
             NumberOfPartners = _num;
-            religion = _hob;
         }
 
-        public string ToStringD()
+        public string GetName()
         {
-            return Role + "," + isSmoking + "," + Animals + "," + NumberOfPartners + "," + religion;
-        }
+            return "Accomodation";
+        }      
     }
 }

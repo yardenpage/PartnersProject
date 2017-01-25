@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PartnersMatcher</RootNamespace>
     <AssemblyName>PartnersMatcher</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,16 +61,87 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="NewUserWindow.xaml.cs">
+    <Compile Include="Controler\Controller.cs" />
+    <Compile Include="Controler\IController.cs" />
+    <Compile Include="Model\Domains\Sports.cs" />
+    <Compile Include="Model\Domains\Trip.cs" />
+    <Compile Include="Model\Posts\DatesPost.cs" />
+    <Compile Include="Model\Posts\SportPost.cs" />
+    <Compile Include="View\Post_View\accomodation_Post.xaml.cs">
+      <DependentUpon>accomodation_Post.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Users_View\accomodation_User.xaml.cs">
+      <DependentUpon>accomodation_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Post_View\dates_Post.xaml.cs">
+      <DependentUpon>dates_Post.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IView.cs" />
+    <Compile Include="Model\Posts\AccomodationPost.cs" />
+    <Compile Include="Model\Domains\Accomodation.cs" />
+    <Compile Include="Model\Domains\Dates.cs" />
+    <Compile Include="View\Users_View\Date_user.xaml.cs">
+      <DependentUpon>Date_user.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Users_View\EditUserProfile.xaml.cs">
+      <DependentUpon>EditUserProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Domains\IDomain.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\MyModel.cs" />
+    <Compile Include="Model\Posts\TripPost.cs" />
+    <Compile Include="View\Users_View\NewUserWindow.xaml.cs">
       <DependentUpon>NewUserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="registeredUserView.xaml.cs">
+    <Compile Include="View\Post_View\postWindow.xaml.cs">
+      <DependentUpon>postWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\registeredUserView.xaml.cs">
       <DependentUpon>registeredUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="signIn.xaml.cs">
+    <Compile Include="View\requests.xaml.cs">
+      <DependentUpon>requests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Users_View\signIn.xaml.cs">
       <DependentUpon>signIn.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Model\User.cs" />
+    <Compile Include="View\Post_View\sports_Post.xaml.cs">
+      <DependentUpon>sports_Post.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Users_View\sports_User.xaml.cs">
+      <DependentUpon>sports_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Post_View\Trips_Post.xaml.cs">
+      <DependentUpon>Trips_Post.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Users_View\Trip_User.xaml.cs">
+      <DependentUpon>Trip_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\userProfile.xaml.cs">
+      <DependentUpon>userProfile.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Post_View\accomodation_Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Users_View\accomodation_User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Post_View\dates_Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Users_View\Date_user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Users_View\EditUserProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -72,25 +149,53 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewUserWindow.xaml">
+    <Page Include="View\Users_View\NewUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="registeredUserView.xaml">
+    <Page Include="View\Post_View\postWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="signIn.xaml">
+    <Page Include="View\registeredUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\requests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Users_View\signIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Post_View\sports_Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Users_View\sports_User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Post_View\Trips_Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Users_View\Trip_User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\userProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Post.cs" />
+    <Compile Include="Model\Posts\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -117,6 +222,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

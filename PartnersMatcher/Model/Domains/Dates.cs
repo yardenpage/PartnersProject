@@ -7,11 +7,20 @@ using System.Threading.Tasks;
 
 namespace PartnersMatcher
 {
-    class Dates : IDomain
+    public partial class Dates : IDomain
     {
-        public string ToStringD()
+        string _gender;
+        double _age;
+        string _intention;
+        public Dates(string gender, double age, string intention)
         {
-            throw new NotImplementedException();
+            _gender = gender;
+            _age = age;
+            _intention = intention;
+        }
+        public string GetName()
+        {
+            return "Dates";
         }
     }
 }
